@@ -1,0 +1,10 @@
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: "rabbitmq:management"
+    env_file: .env
+    ports:
+      - "${BROKER_PORT}:5672"
+      - "${MANAGER_PORT}:15672"
+    volumes:
+      - ./data:/var/lib/rabbitmq

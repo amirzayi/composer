@@ -1,0 +1,11 @@
+services:
+  memcached:
+    image: memcached
+    container_name: memcached
+    env_file: .env
+    ports:
+      - "${MEMCACHED_PORT}:11211"
+    command:
+      - --conn-limit=${CONN_LIMIT}
+      - --memory-limit=${MEM_LIMIT}
+      - --threads=${THREAD_COUNT}

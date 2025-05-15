@@ -1,0 +1,7 @@
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    env_file: .env
+    ports:
+      - "${PGADMIN_LOCAL_PORT}:80"

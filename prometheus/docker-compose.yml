@@ -1,0 +1,9 @@
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    env_file: .env
+    ports:
+      - "${PROMETHEUS_LOCAL_PORT}:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml

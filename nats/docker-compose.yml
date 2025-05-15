@@ -1,0 +1,13 @@
+services:
+  nats:
+    image: nats
+    container_name: "nats"
+    ports:
+      - "${CLIENT_PORT}:4222"
+      - "${MANAGER_PORT}:6222"
+      - "${CLUSTER_PORT}:8222"
+    environment:
+      - JS_STORE_DIR=/jetstream/data
+    volumes:
+      - ./jetstream:/jetstream/data
+    command: ["-js"]

@@ -1,0 +1,10 @@
+services:
+  grafana:
+    image: grafana/agent
+    container_name: grafanaagent
+    env_file: .env
+    ports:
+      - "${GRAPHANAAGENT_LOCAL_PORT}:9999"
+    volumes:
+      - ./data:/etc/agent/data
+      - ./agent.yaml:/etc/agent/agent.yaml

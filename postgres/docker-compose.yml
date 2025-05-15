@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres
+    restart: unless-stopped
+    container_name: postgres
+    env_file: .env
+    ports:
+      - "{POSTGRES_LOCAL_PORT}:5432"
+    volumes:
+      - "./data:${PGDATA}"
